@@ -1,7 +1,7 @@
 
 ## Productbox Frontend Code Challenge
 
-In the project directory, you can run:
+This is my attempt of Productbox Frontend Code Challenge.
 
 ## Getting Started
 
