@@ -7,23 +7,29 @@ import AddItem from './Components/AddItem'
 import ItemsList from './Components/ItemsList'
 import CheckOut from './Components/CheckOut'
 
+import { Provider } from 'react-redux'
+import store from './redux/store'
+
 const App = () => {
     return (
-        <Router>
-            <div>
-                <Header />
-            
-            <div className="container">
-                <Switch>
-                    <Route exact path='/add' component={AddItem} />
-                    <Route exact path='/items' component={ItemsList} />
-                    <Route exact path='/checkout' component={CheckOut} />
-                </Switch>
-            </div>
-                
-            </div>
+        <Provider store={store}>
+            <Router>
+                <div>
+                    {/* Header */}
+                    <Header />
+                    {/* Content */}
+                    <div className="container py-4">
+                        <Switch>
+                            <Route exact path='/add' component={AddItem} />
+                            <Route exact path='/items' component={ItemsList} />
+                            <Route exact path='/checkout' component={CheckOut} />
+                        </Switch>
+                    </div>
+                    
+                </div>
 
-        </Router>
+            </Router>
+        </Provider>
     )
 }
 
