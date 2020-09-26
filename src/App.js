@@ -1,22 +1,20 @@
 import React from 'react'
 
-import {BrowserRouter as Router, Switch , Route} from 'react-router-dom'
+import {Switch , Route} from 'react-router-dom'
 
 import Header from './Components/Header'
 import AddItem from './Components/AddItem'
 import ItemsList from './Components/ItemsList'
 import CheckOut from './Components/CheckOut'
 
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 import store from './redux/store'
 
 const App = () => {
     return (
-        <Provider store={store}>
-            <Router>
-                <div>
-                    {/* Header */}
-                    <Header />
+            <div>
+                {/* Header */}
+                <Header />
                     {/* Content */}
                     <div className="container py-4">
                         <Switch>
@@ -25,11 +23,7 @@ const App = () => {
                             <Route exact path='/checkout' component={CheckOut} />
                         </Switch>
                     </div>
-                    
-                </div>
-
-            </Router>
-        </Provider>
+            </div>
     )
 }
 
