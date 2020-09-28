@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
-
+import { clearItemFromCart } from '../redux/actions/cartActions'
 import './CheckOut.css'
 
-const CheckOut = ({cartItems}) => {
+const CheckOut = ({cartItems, clearItem}) => {
     return (
         <div className="my-4">
             <h5 className="text-center my-4">Items in the Cart</h5>
@@ -26,7 +26,7 @@ const CheckOut = ({cartItems}) => {
                                     <td>{cartItem.price}</td>
                                     <td><img src={cartItem.img} className="img"/></td>
                                     <td>{cartItem.quantity}</td>
-                                    <td className="close">X</td>
+                                    <td className="close" onClick={() => clearItem(cartItem)}>X</td>
                                 </tr>
                             )
                         })
@@ -42,4 +42,7 @@ const CheckOut = ({cartItems}) => {
 export const mapStateToProps = state => ({
     cartItems: state.cart.cartItems
 })
-export default connect(mapStateToProps)(CheckOut)
+const mapDispatchToProps = dispatch => ({
+    clearItem: item => dispatch(clearItemFromCart(item))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOut)
