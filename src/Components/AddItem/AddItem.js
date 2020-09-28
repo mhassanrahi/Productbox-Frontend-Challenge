@@ -10,7 +10,6 @@ const AddItem = () => {
     }
     
     const [itemData, setItemData] = useState(INITIAL_STATE)
-    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const {itemName, itemPrice, imageURL} = itemData;
 
@@ -25,7 +24,7 @@ const AddItem = () => {
     }
     const handleSubmit = async e => {
         e.preventDefault();
-        const {data} = await axios.post('http://localhost:4000/items', itemData)
+        await axios.post('http://localhost:4000/items', itemData)
         setItemData(INITIAL_STATE)
     }
 

@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { clearItemFromCart } from '../redux/actions/cartActions'
+import CheckOutItem from '../CheckOutItem/CheckOutItem'
+
 import './CheckOut.css'
 
 const CheckOut = ({cartItems, clearItem}) => {
@@ -19,15 +20,9 @@ const CheckOut = ({cartItems, clearItem}) => {
                 </thead>
                 <tbody>
                     {
-                        cartItems?.map(cartItem => {
+                        cartItems.map(cartItem => {
                             return (
-                                <tr key={cartItem.id}>
-                                    <td>{cartItem.name}</td>
-                                    <td>{cartItem.price}</td>
-                                    <td><img src={cartItem.img} className="img"/></td>
-                                    <td>{cartItem.quantity}</td>
-                                    <td className="close" onClick={() => clearItem(cartItem)}>X</td>
-                                </tr>
+                                <CheckOutItem cartItem={cartItem} key={cartItem.id} />
                             )
                         })
                     }
@@ -42,7 +37,5 @@ const CheckOut = ({cartItems, clearItem}) => {
 export const mapStateToProps = state => ({
     cartItems: state.cart.cartItems
 })
-const mapDispatchToProps = dispatch => ({
-    clearItem: item => dispatch(clearItemFromCart(item))
-})
-export default connect(mapStateToProps, mapDispatchToProps)(CheckOut)
+
+export default connect(mapStateToProps)(CheckOut)

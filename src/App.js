@@ -2,13 +2,11 @@ import React from 'react'
 
 import {Switch , Route} from 'react-router-dom'
 
-import Header from './Components/Header'
-import AddItem from './Components/AddItem'
-import ItemsList from './Components/ItemsList'
-import CheckOut from './Components/CheckOut'
+import Header from './Components/Header/Header'
+import AddItem from './Components/AddItem/AddItem'
+import ItemsList from './Components/ItemsList/ItemsList'
+import CheckOut from './Components/CheckOut/CheckOut'
 
-// import { Provider } from 'react-redux'
-import store from './redux/store'
 
 const App = () => {
     return (

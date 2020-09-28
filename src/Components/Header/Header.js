@@ -23,7 +23,7 @@ const Header = ({itemCount}) => {
                 </ul>
 
                 <div className="ml-auto">
-                    <Link className="nav-link text-white" to="/checkout">Cart({itemCount.cartItems.length})</Link>
+                    <Link className="nav-link text-white" to="/checkout">Cart({itemCount.length})</Link>
                 </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@ const Header = ({itemCount}) => {
 }
 
 const mapStateToProps = state => ({
-    itemCount: state.cart
+    itemCount: state.cart.cartItems
 })
 
 export default connect(mapStateToProps)(Header)

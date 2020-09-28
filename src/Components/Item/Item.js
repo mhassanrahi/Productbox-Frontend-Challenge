@@ -1,17 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { addItem } from '../redux/actions/cartActions'
+import { addItem } from '../../redux/actions/cartActions'
 import './Item.css'
 
 
 const Item = ({item, addItem}) => {
     const {name, img, price} = item
-    const [cartItems, setCartItems] = useState([])
-
-    const addToCart = () => {
-        console.log('Added to cart!')
-    }
-
+    
     return (
         <div className="col-12 col-md-6 col-lg-4 my-2">
             <div className="card h-100">
@@ -27,7 +22,7 @@ const Item = ({item, addItem}) => {
                         <h5 className="card-title text-white">PKR. {price}</h5>
                         </div>
                     </div>
-                    <a onClick={()=> addItem(item)} className="btn btn-primary">Add to cart</a>
+                    <a onClick={()=> addItem(item)} href="#" className="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         </div>
