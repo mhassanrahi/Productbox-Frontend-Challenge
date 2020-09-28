@@ -23,7 +23,6 @@ const Header = ({itemCount}) => {
                 </ul>
 
                 <div className="ml-auto">
-                    {/* <span className="mr-2 text-white">Cart(0)</span> */}
                     <Link className="nav-link text-white" to="/checkout">Cart({itemCount.cartItems.length})</Link>
                 </div>
                 </div>

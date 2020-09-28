@@ -13,17 +13,19 @@ const CheckOut = ({cartItems}) => {
                         <th scope="col">Item</th>
                         <th scope="col">Price</th>
                         <th scope="col">Image</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        cartItems?.cartItems.map(cartItem => {
+                        cartItems?.map(cartItem => {
                             return (
                                 <tr key={cartItem.id}>
                                     <td>{cartItem.name}</td>
                                     <td>{cartItem.price}</td>
                                     <td><img src={cartItem.img} className="img"/></td>
+                                    <td>{cartItem.quantity}</td>
                                     <td className="close">X</td>
                                 </tr>
                             )
@@ -38,6 +40,6 @@ const CheckOut = ({cartItems}) => {
 }
 
 export const mapStateToProps = state => ({
-    cartItems: state.cart
+    cartItems: state.cart.cartItems
 })
 export default connect(mapStateToProps)(CheckOut)

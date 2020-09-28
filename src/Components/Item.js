@@ -5,7 +5,6 @@ import './Item.css'
 
 
 const Item = ({item, addItem}) => {
-    // console.log(addItem)
     const {name, img, price} = item
     const [cartItems, setCartItems] = useState([])
 
